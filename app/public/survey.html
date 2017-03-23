@@ -201,30 +201,30 @@
 
 
 // Capture the form input
-$("#submit").on("click", function)() {
-	
-	// Form validation
-function validateform() {
-	var isValid = true;
+$("#submit").on("click", function)() {/*when the user submits clicks submit we need to validate the form*/
+// Form validation
+	function validateform() {
+	var isValid = true;/*we assume it is true....*/
 	$(".form-control").each(function() {
-		if ($(this).val() === "" {
-			isValid = false;
+		if ($(this).val() === "") {
+			isValid = false;/*but, if we find the name or the URL are labeled with the class form-control are empty mark it false*/
 		}
-});
+	});
 
-$("chosen-select").each(function) {
+$("chosen-select").each(function) {/*Or If we find that any of the questions which are matched with the class 'chosen-select' are actually blank, mark it false. This is to keep bad data out of the system.*/
 	if($(this).val() === "") {
 		isValid = false;
 	}
 });
-	return isValid;
+return isValid;
 }
 
 
 
-if (validateForm()) {
+if (validateForm()) {/*first we check to see if the form is valid, if it is then we do a bunch of stuff.*/
 
-	var userData = {
+	var userData = {/*we create an object for the user's data. Then we input in the exact same format as the example data,
+	the users information they selected in the survey. (JQUERY Below)*/
 		name: $("#name").val(),
 		photo: $("#photo").val(),
 		scores: [
@@ -238,14 +238,10 @@ if (validateForm()) {
 		$("q8").val(),
 		$("q9").val(),
 		$("q10").val(),
-
 		]
 	};
-
-	var currentURL = window.location.origin;
-
-	$.post(currentURL + "/api/friends", userData, function(data) {
-
+	var currentURL = window.location.origin;/*grabs the URL of the website*/
+	$.post(currentURL + "/api/friends", userData, function(data) {/*AJAX post the data to the friends API.*/
 		alert("working");
 
 	});
