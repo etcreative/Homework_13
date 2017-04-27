@@ -11,17 +11,17 @@ as well as the data that delivers from the front to the back-end and vice verse.
 
 //* dependencies - npm packages "express", "bodyParser"
 var express = require("express");
-var app = express(); //* we have a variable set to the express library
+var app = express();//* we have a variable set to the express library
 var bodyParser = require("body-parser");
 var path = require("path");
 
-var PORT = process.env.PORT || 8080; //* we set a variable to our PORT 8080
+var PORT = process.env.PORT || 8080;//* we set a variable to our PORT 8080
 
 /*create application/JSON parser
 var jsonParser = bodyParser.json()*/
 
-
 //create application/x-www-form-urlencoded parser
+/*(bodyParser - below)helps body parser translate the communication from the back to the front-end */
 app.use(bodyParser.urlencoded({ extended: true }));
 
 //parse various different custom JSON types as JSON using bodyParser app
@@ -39,4 +39,3 @@ require("./app/routing/html-routes.js")(app);
 app.listen(PORT, function() {
 	console.log("App listening on PORT: " + PORT);
 });
-
