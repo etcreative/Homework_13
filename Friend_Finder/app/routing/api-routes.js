@@ -52,7 +52,7 @@ for (var i = 0; i < friends.length; i++) {/* Here we loop through all the friend
 				/*(Below: resets the bestMatch variable to be the new friend*/
 				console.log("yo");
 				bestMatch.name = friends[i].name;
-				bestMatch.photo = friends[i].name;
+				bestMatch.photo = friends[i].photo;
 				bestMatch.friendDifference = totalDifference;
 		}
 	}
